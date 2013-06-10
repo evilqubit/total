@@ -8,8 +8,8 @@ if( ($_FILES['image']['type'] == 'image/jpeg') || ($_FILES['image']['type'] == '
 		
 		$dest = $target_path_t;
 		
-		$desired_width = 189;
-		$desired_height = 122;
+		$desired_width = 190;
+		$desired_height = 124;
 		
 		/* find the "desired height" of this thumbnail, relative to the desired width  */
 		$desired_height = floor($height * ($desired_width / $width));

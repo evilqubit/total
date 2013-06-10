@@ -17,7 +17,7 @@ if(isset($_POST['submit_poll']))
 	$address = addslashes($_POST['address']);
 	$phone = addslashes($_POST['phone']);
 	
-	$date = date("Y-m-d H:m:s", strtotime("+4 hours"));
+	$date = date("Y-m-d H:m:s", strtotime("+3 hours"));
 	
 	$target_paths = "gallery/";
 	$target_path_t = "gallery/t/";

@@ -3,9 +3,17 @@
 
 
 <?php
-$uid = 7777;
+$dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
 
-$dbs = "SELECT * FROM participants WHERE fb_id = '$uid'";
+if($numrows == 0)
+{
+	$date = date("Y-m-d");
+	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
+}
+
+$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
 $extractx = mysql_query ($dbs);
 $numrows = mysql_num_rows ($extractx);
 
@@ -17,7 +25,7 @@ if($numrows > 0)
 <?php include "php/submit.php";?>
 <div id="index">
 
- 		<div id="terms" class="lightbox">
+ 		<div id="terms" class="lightbox" style="display:none">
         	
             <div id="terms_back">
             
@@ -92,7 +100,7 @@ if($numrows > 0)
 <!-- custom scrollbars plugin -->
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
-	(function($){
+	/*(function($){
 		$(window).load(function(){
 			$("#content_1").mCustomScrollbar({
 				autoHideScrollbar:true,
@@ -100,7 +108,7 @@ if($numrows > 0)
 			});
 			$('.lightbox').css({"display":"none"});
 		});
-	})(jQuery);
+	})(jQuery);*/
 </script>
 
 
@@ -134,6 +142,11 @@ $('#b_tc').click(function(){
 	$('#terms').css({
 		"display":"block"
 		});
+		
+		$("#content_1").mCustomScrollbar({
+				autoHideScrollbar:true,
+				theme:"light-thin"
+			});
 });
 
 $('#b_prizes').click(function(){
@@ -141,7 +154,7 @@ $('#b_prizes').click(function(){
 		"display":"block"
 		});
 });
-/*
+
 $("#submit").click(function(){
 	
 	var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -193,7 +206,7 @@ $("#submit").click(function(){
 		$("#phone").focus();
 		return false;
 	}
-});*/
+});
    </script>
    
 
