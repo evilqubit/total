@@ -5,7 +5,7 @@ session_start();
 //facebook application
 $config['appid' ] = "281325538680004";
 $config['secret'] = "e44dd0d121e9b54bd51bf85b2fc02fd2";
-$config['baseurl'] = "http://lebappsonline.com/dev01/afterearth/";
+$config['baseurl'] = "http://lebappsonline.com/dev01/total/app/";
 
 $config['appbaseurl'] = "https://www.facebook.com/pages/Publiscreen-Apps/581669711863250?id=581669711863250&sk=app_281325538680004";
 // Create our Application instance.
@@ -23,7 +23,7 @@ if ( isset($signedRequest['page']['liked']) && $signedRequest['page']['liked'] =
 
 $user = $facebook->getUser();
 $loginUrl = $facebook->getLoginUrl(
-array('scope' => 'email,user_birthday')
+array('scope' => 'email,user_birthday,publish_stream,status_update,user_work_history,publish_actions,read_stream, publish_stream, offline_access')
 );
 if ($user) {
 try {

@@ -17,7 +17,7 @@ if(isset($_POST['submit_poll']))
 	$address = addslashes($_POST['address']);
 	$phone = addslashes($_POST['phone']);
 	
-	$date = date("Y-m-d H:m:s", strtotime("+3 hours"));
+	$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 	
 	$target_paths = "gallery/";
 	$target_path_t = "gallery/t/";
@@ -51,6 +51,16 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 					include "thumb.php";
 					
 					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','0','0')");
+					
+					$image = $config['baseurl'] .'gallery/t/' . $image;
+					
+					$facebook->api("/me/feed", "post", array(
+					message => 'I Just voted for this image',
+					picture=>  $image,
+					link => $config['appbaseurl'],
+					name => "Total"
+					));
+			
 					echo "<script>document.location.replace('thankyou.php');</script>";
 					
 				exit;

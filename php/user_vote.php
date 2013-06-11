@@ -4,13 +4,13 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 {
 	$partid = $_GET['partid'];
 
-	$selectQuery = "SELECT * FROM votes WHERE user_id = '{$_SESSION['uid']}'";
+	$selectQuery = "SELECT * FROM votes WHERE user_id = '{$_SESSION['uid']}' ORDER BY date DESC LIMIT 1";
 	$query_result = mysql_query($selectQuery);
 	$numrows = mysql_num_rows($query_result);
 	
 	if($numrows == 0)
 	{
-		$date = date("Y-m-d H:m:s", strtotime("+3 hours"));
+		$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 		
 		$write = mysql_query("INSERT INTO votes VALUES ('','$partid','{$_SESSION['uid']}','$date')");
 		
@@ -21,19 +21,28 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 			$votes = $row['votes'];
 			$votes += 1;
 			
+			$image = $config['baseurl'] .'gallery/t/' . $row['image'];
+			
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$partid'";
 			$update = mysql_query ($db);
 		
+		$facebook->api("/me/feed", "post", array(
+			message => 'I Just voted for this image',
+			picture=>  $image,
+			link => $config['appbaseurl'],
+			name => "Total"
+			));
+			
 		echo '<script>document.location.replace("after_vote.php?v=1");</script>';
 	}
 	else
 	{
-		$date = date("Y-m-d H:m:s", strtotime("+3 hours"));
+		$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 		
-		while ($row = mysql_fetch_array($query_result))
-		{
-			$past = $row['date'];
-		}
+		$row = mysql_fetch_array($query_result);
+		$past = $row['date'];
+			
+		
 		
 		$diff = abs(strtotime($date) - strtotime($past)); 
 	
@@ -59,11 +68,22 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 
 				$votes = $row['votes'];
 				$votes += 1;
-			
+				
+				$image = $config['baseurl'] .'gallery/t/' . $row['image'];
+				
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$partid'";
 			$update = mysql_query ($db);
 			
 			$write = mysql_query("INSERT INTO votes VALUES ('','$partid','{$_SESSION['uid']}','$date')");
+			
+			
+			$facebook->api("/me/feed", "post", array(
+			message => 'I Just voted for this image',
+			picture=>  $image,
+			link => $config['appbaseurl'],
+			name => "Total"
+			));
+			
 			
 			echo '<script>document.location.replace("after_vote.php?v=1");</script>';
 		}

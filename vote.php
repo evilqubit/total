@@ -254,7 +254,7 @@ $(document).ready(function() {
 
 		$('.shareit').click(function(e){
 			
-			var img = '<?php echo $config['baseurl'] . 'voting/';?>' +$('#total_image').val();
+			var img = '<?php echo $config['baseurl'];?>' +$('#total_image').val();
 
 			e.preventDefault();
 			FB.ui(
