@@ -1,0 +1,35 @@
+@media screen and (max-width: 768px){
+ .container{
+	 
+	}
+	
+	#former{
+		margin-top:49px;
+	}
+	.span4{
+		
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px){
+	#former{
+		margin-top:0px;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.container{
+	background-image:none;
+	}
+	
+	#former{
+			margin-top:0px;
+	}
+	#div_error{
+		/*height:30px;*/
+		
+	}
+	.span4{
+		
+	}
+}
