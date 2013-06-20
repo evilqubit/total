@@ -107,4 +107,8 @@ EOT;
     	echo "<script>window.location = 'like.php'; </script>";
         exit;
     }
+    
+    $uname = $userInfo['name'];
+    $uemail = $userInfo['email'];
+    $dob = $userInfo['birthday'];
 ?>

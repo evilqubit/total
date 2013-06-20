@@ -67,7 +67,7 @@ body{
 <div class="row">
 		<div class="span12">        
             <div class="row">
-                <div class="span12"><img src="images/logo.png"></div>
+                <div class="span12"><a href="index.php"><img width="100%" style="border:none" src="images/logo.png"></a></div>
             </div>
             <div class="row">
                 <div class="span12">

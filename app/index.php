@@ -24,14 +24,19 @@ if($numrows > 0)
 ?>
 <?php include "php/submit.php";?>
 <div id="index">
-
+<div id="total_logo"><a href="index.php"></a></div>
  		<div id="terms" class="lightbox" style="display:none">
         	
+            <div id="terms_back_bg">
             <div id="terms_back">
+          
             
         	<div id="content_1" class="content">
         	<?php include "php/terms.php";?>
             </div>
+            
+            </div>
+           
             </div>
         </div>
         
@@ -51,10 +56,6 @@ if($numrows > 0)
 	<div id="form">
     	<div>Full Name</div>
         <div><input type="text" value="<?php echo $name;?>" name="name" id="name"/></div>
-        <div class="clearboth"></div>
-        
-        <div>AGE</div>
-        <div><input type="text" value="<?php echo $age;?>" name="age"/ id="age"></div>
         <div class="clearboth"></div>
         
         <div>EMAIL</div>
@@ -150,15 +151,20 @@ $('.lightbox').click(function(){
 		});
 });
 
+var scrolling = 0;
+
 $('#b_tc').click(function(){
 	$('#terms').css({
 		"display":"block"
 		});
 		
-		$("#content_1").mCustomScrollbar({
-				autoHideScrollbar:true,
-				theme:"light-thin"
-			});
+		if(scrolling == 0)
+		{ scrolling = 1;		
+			$("#content_1").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+		}
 });
 
 $('#b_prizes').click(function(){
@@ -212,10 +218,16 @@ $("#submit").click(function(){
 		return false;
 	}*/
 	
+	if (isNaN( $("#phone").val() )) {
+    	$("#error").val("Phone number can be only numbers");
+		$("#phone").focus();
+		return false;
+	}
+	
 	if( $("#image").val() == '')
 	{
 		$("#error").val("Please upload your image");
-		$("#phone").focus();
+		$("#image").focus();
 		return false;
 	}
 });

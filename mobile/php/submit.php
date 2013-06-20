@@ -1,17 +1,17 @@
 <?php
 
 $error = '';
-$name = '';
+$name = $uname;
 $age = '';
-$email = '';
-$address =' ';
+$email = $uemail;
+$address = $_SESSION['country'];
 $phone = '';
 	
 	
 if(isset($_POST['submit_poll']))
 {
 	$name = addslashes($_POST['name']);
-	$age = addslashes($_POST['age']);
+	$age = '';
 	$email = addslashes($_POST['email']);
 	$address = addslashes($_POST['address']);
 	$phone = addslashes($_POST['phone']);
@@ -31,7 +31,7 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 || ($_FILES['image']['type'] == 'image/png')
 || ($_FILES['image']['type'] == 'image/gif'))
 {
-	$maxSize = 1000000; 
+	$maxSize = 10000000; 
 	$uploadSize = $_FILES['image']['size'];
 
 	$type = basename( $_FILES['image']['name']);
@@ -79,7 +79,7 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 	}
 	else
 	{
-		$error = 'image should not exceed 1 MB';
+		$error = 'image should not exceed 10 MB';
 	}
 	}
 	

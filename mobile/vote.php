@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 <body>
 
-<div id="header"><img style="width:100%" src="images/logo.png"></div>
+<div id="header"><a href="index.php"><img width="100%" style="border:none" src="images/logo.png"></a></div>
 <div id="background" style="position:absolute"><img src="images/form.png"></div>
 <div id="wrapper">
 	<div id="scroller">

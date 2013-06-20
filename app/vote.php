@@ -63,6 +63,36 @@ $(document).ready(function() {
 
 <div id="vote">
 
+<div id="total_logo"><a href="index.php"></a></div>
+
+
+<div id="terms" class="lightbox" style="display:none">
+        	
+            <div id="terms_back_bg">
+            <div id="terms_back">
+          
+            
+        	<div id="content_1" class="content">
+        	<?php include "php/terms.php";?>
+            </div>
+            
+            </div>
+           
+            </div>
+        </div>
+        
+        
+        
+        <div id="prizes" class="lightbox">
+        	
+          
+            <table align="center" style="width:810px; height:600px;"><Tr><Td align="center">
+            <img style="height:600px" src="images/prize.png" />
+        	</Td></Tr></table>
+            
+        </div>
+
+
 <div style="position:absolute; bottom:12; left:142; width:160px; height:23px; z-index:99">
                
                 <a href="#" onClick="sortMethodChanged(1)" style="float:left; width:67px; height:23px; display:block; background-image:url(images/home.png);
@@ -75,6 +105,7 @@ $(document).ready(function() {
 
 <div id="wrapper">
     	
+        
         <div id="internalWrapper" style="margin:0;padding:0;width: 780px; height: 426px;position:absolute;overflow:hidden;">
         	<div class="qDiv" style="margin:0;padding:0;width: 780px; height: 426px;position:absolute;">
 			<?php
@@ -132,20 +163,24 @@ $(document).ready(function() {
 						
 							<form id="vote'.$rowCounter.''.$colCounter.'" name="vote'.$rowCounter.''.$colCounter.'" action="vote.php" action="post">
 								<input type="hidden" value="'.$property["id"].'" id="partid" name="partid" />
-								<div class="voteButton" style="right:0px;">
+								
+								<div class="voteButton" style="right:110px;">
 									<a href="#" onClick="voteFor(\'vote'.$rowCounter.''.$colCounter.'\')">
 									<img src="images/vote_b.png">
 								</div>
+								
 								<div class="voteButton" style="right:55px;">
 									<a href="#" class="shareit" onclick="document.getElementById(\'total_image\').value=\'gallery/t/'.$property["image"].'\'" />
 									<img src="images/share.png">
 									</a>
 								</div>
-								<div class="voteButton" style="right:110px;">
+								
+								<div class="voteButton" style="right:0px;">
 									<a href="#" onClick="sendRequestViaMultiFriendSelector()">
 									<img src="images/invite.png">
 									</a>
 								</div>
+								
 							</form>
 							
                           
@@ -177,7 +212,10 @@ $(document).ready(function() {
         
                
         </div>
-    </div>
+    
+
+
+
     <?php
 				
 				echo '<script type="text/javascript">var pageNumber = '.ceil($counter/6).'</script>';
@@ -187,6 +225,46 @@ $(document).ready(function() {
     
 </div> 
 
+</div><div id="tc_prize"><table border="0" align="center"; height="50px"><tr><Td><span id="b_tc" style="cursor:pointer">TERMS & CONDITIONS</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="b_prizes" style="cursor:pointer">PRIZES</span>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="index.php" style="text-decoration:none; color:#FFF">Go to Homepage</a></Td></tr></table></div>
+
+<script src="js/jquery.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="js/minified/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script>
+<!-- custom scrollbars plugin -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script>
+$('.lightbox').click(function(){
+	$('#terms').css({
+		"display":"none"
+		});
+		
+	$('#prizes').css({
+		"display":"none"
+		});
+});
+
+var scrolling = 0;
+
+$('#b_tc').click(function(){
+	$('#terms').css({
+		"display":"block"
+		});
+		
+		if(scrolling == 0)
+		{ scrolling = 1;		
+			$("#content_1").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+		}
+});
+
+$('#b_prizes').click(function(){
+	$('#prizes').css({
+		"display":"block"
+		});
+});
+</script>
 
 <script src="https://connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript">

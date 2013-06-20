@@ -7,7 +7,7 @@ if ($deviceType == 'computer')
 	/*echo '<script>top.location.href = "https://www.facebook.com/pages/Publiscreen-Apps/581669711863250?id=581669711863250&sk=app_281325538680004";</script>';*/
 }
  
-include "include.php";
+//include "include.php";
 ?>
 <?php
 
@@ -25,6 +25,8 @@ $_SESSION['country'] = $ip2c->get_country_name();
 
 
 include "connect.php";
+
+$_SESSION['uid'] = '111';
 ?>
 
 <!DOCTYPE html>

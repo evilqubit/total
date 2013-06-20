@@ -131,7 +131,7 @@ include "php/submit.php";
 	<div class="row">
 		<div class="span12">        
             <div class="row">
-                <div class="span8"><img src="images/logo.png"></div>
+                <div class="span8"><a href="index.php"><img width="100%" style="border:none" src="images/logo.png"></a></div>
                
                 <div class="span4" id="former">
                 
@@ -143,12 +143,7 @@ include "php/submit.php";
                 	<div class="row">
                     	<div class="span4"><span><input type="text" value="<?php echo $name;?>" name="name" id="name"></span></div>
                     </div>
-                    <div class="row">
-                    	<div class="span4">age</div>
-                    </div>
-                	<div class="row">
-                    	<div class="span4"><input type="text" value="<?php echo $age;?>" name="age"/ id="age"></div>
-                    </div>
+                   
                     <div class="row">
                     	<div class="span4">email</div>
                     </div>
@@ -357,10 +352,16 @@ function showPosition(position)
 		return false;
 	}*/
 	
+	if (isNaN( $("#phone").val() )) {
+    	$("#error").val("Phone number can be only numbers");
+		$("#phone").focus();
+		return false;
+	}
+	
 	if( $("#image").val() == '')
 	{
 		$("#error").text("Please upload your image");
-		$("#phone").focus();
+		$("#image").focus();
 		return false;
 	}
 });

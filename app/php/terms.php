@@ -1,5 +1,5 @@
-<table align="center" id="tc_table"><Tr><Td>
-            
+<table align="center" id="tc_table"><tr><Td>
+
 <p>By entering the TOTAL QUARTZ Robot photo competition on Total Liban Facebook page, you are agreeing to Total Liban storing your information. We will not share your information with third parties.</p>
 
 <p>This competition is in no way sponsored, endorsed or administered by, or associated with Facebook. By participating, you hereby release and indemnify Facebook from any and all liability associated with this competition.</p>
@@ -13,15 +13,13 @@
 <p>Entries must be submitted by midnight June 22nd at the latest. Voting for the best pictures is open until midnight June 30th. The winners will be announced on July 1 at noon.</p>
 
 <p>Please read the competition rules carefully. If you enter one of our competitions, we will assume that you have read the rules and that you agree to them.</p>
-
-<p>
-1. To enter a competition you must be: <br />
+<p>1. To enter a competition you must be: <Br />
 (a) Lebanese resident; and <Br />
 (b) 18 years old or over at the time of entry. Proof of identity and age may be required</p>
 
 <p>2. Competitions are not open to employees (or members of their immediate families) of Total Liban.</p>
 
-<p>3. Entries can only be posted on Facebook. Competition details are a part of these terms and conditions. </p>
+<p>3. Entries can only be posted on Facebook. Competition details are a part of these terms and conditions.</p>
 
 <p>4. No responsibility can be accepted for entries that are not received for any reason.</p>
 
@@ -39,6 +37,12 @@
 
 <p>11. The competition may be modified or withdrawn at any time.</p>
 
+<p>Prizes:<br />
+1st  prize TOTAL card La Carte with 500 USDs worth of fuel, oil change and all services on all 180 TOTAL service stations <br />
+2nd prize TOTAL card la Carte with 300 USDs worth of fuel, oil change and all services on all 180 TOTAL service stations <Br />
+3rd prize TOTAL card La Carte with 200 USDs worth of fuel, oil change and all services on all 180 TOTAL service stations</p>
+
+
 
             
-            </Td></Tr></table>
+</Td></Tr></table>

@@ -4,10 +4,10 @@ session_start();
 include "demo.php";
 if ( ($deviceType == 'tablet') || ($deviceType == 'phone') )
 {
-	echo '<script>top.location.href = "http://lebappsonline.com/dev01/total/mobile/";</script>';
+	/*echo '<script>top.location.href = "http://lebappsonline.com/dev01/total/mobile/";</script>';*/
 }
 
-include "include.php";
+//include "include.php";
 ?>
 <?php
 
@@ -26,6 +26,7 @@ $_SESSION['country'] = $ip2c->get_country_name();
 
 include "connect.php";
 
+$_SESSION['uid'] = '111';
 ?>
 
 <html>

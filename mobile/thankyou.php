@@ -117,7 +117,7 @@ $text = "thank you for submitting and good luck";
     
 	<div class="row">
 		<div class="span12">        
-            <div class="span12"><img src="images/logo.png"></div>
+            <div class="span12"><a href="index.php"><img width="100%" style="border:none" src="images/logo.png"></a></div>
         </div>
             
         <div class="span12" id="former" style="margin-top:100px;">
@@ -137,7 +137,7 @@ $text = "thank you for submitting and good luck";
                     	<div class="span4" style="margin-top:50px">
                         
                         	
-                        	<input class="btn" type="button" onClick="document.location.replace('vote.php')" value="Gallery">
+                        	<input class="btn" type="button" onClick="document.location.replace('vote.php')" value="Back to Homepage">
                             
                         </div>
                     </div>

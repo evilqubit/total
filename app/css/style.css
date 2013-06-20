@@ -25,7 +25,29 @@ img{
 	height:600px;
 	margin:auto;
 }
-
+#total_logo{
+	position: absolute;
+	width: 168px;
+	height: 68px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#total_logo a{
+	width: 168px;
+	height: 68px;
+	display:block;
+}
+#tc_prize{
+	width:810px; height:50px; margin:auto;background-color:#222;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+	background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+	background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+	text-align:center;
+}
+#tc_prize table{
+	font-family: 'Conv_HelveticaNeueLTStd-Md';
+	color:#FFF;
+}
 #like{
 	width:810px;
 	height:600px;
@@ -163,12 +185,22 @@ img{
 	display:none;
 }
 
-#terms_back{
-	width:600px;
-	height:400px;
+#terms_back_bg{
+	background-color:#8ed6ed;
+	width:650px;
+	height:450px;
 	position:absolute;
-	margin-top: 111px;
-	margin-left:111px;
+	margin-top: 101px;
+	margin-left:101px;
+	z-index:1;
+	position:absolute;
+}
+#terms_back{
+	width:610px;
+	height:410px;
+	position:absolute;
+	margin-top: 20px;
+	margin-left:20px;
 	z-index:1;
 	position:absolute;
 	overflow:hidden;
@@ -176,8 +208,11 @@ img{
 }
 
 #tc_table{
-	color:#FFF;
+	color:#000000;
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
+	background-color:#8ed6ed;
+	text-align:justify;
+	text-justify:inter-word;
 }
 #prizes{
 	display:none;
