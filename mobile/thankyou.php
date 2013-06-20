@@ -1,4 +1,12 @@
-<?php include "includes/header.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Total</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <!-- Le styles -->
     
     
@@ -93,135 +101,58 @@ body{
 
 <link href="css/style_responsive.css" rel="stylesheet">
 
-<?php
 
-
-$dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
-$extractx = mysql_query ($dbs);
-$numrows = mysql_num_rows ($extractx);
-
-if($numrows == 0)
-{
-	$date = date("Y-m-d");
-	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
-}
-
-$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
-$extractx = mysql_query ($dbs);
-$numrows = mysql_num_rows ($extractx);
-
-if($numrows > 0)
-{
-	echo "<script>document.location.replace('vote.php');</script>";
-}
-?>
-
-<?php
-include "php/submit.php";
-?>
 <body>
       
         
   
+<?php
+
+$text = "thank you for submitting and good luck";
+
+?>        
         
-        
-<form method="post" enctype="multipart/form-data" action="index.php">
+
 <div class="container">
     
 	<div class="row">
 		<div class="span12">        
-            <div class="row">
-                <div class="span8"><img src="images/logo.png"></div>
-               
-                <div class="span4" id="former">
+            <div class="span12"><img src="images/logo.png"></div>
+        </div>
+            
+        <div class="span12" id="former" style="margin-top:100px;">
                 
-					<div id="div_error" class="span4"><span id="error"><?php echo $error;?></span></div>
+					
                 
-                	<div class="row">
-                    	<div class="span4" style="width:203px; text-align:left">full name</div>
-                    </div>
-                	<div class="row">
-                    	<div class="span4"><span><input type="text" value="<?php echo $name;?>" name="name" id="name"></span></div>
-                    </div>
+                	
+                	
+                   <table align="center"><Tr><Td align="center">
+                	
                     <div class="row">
-                    	<div class="span4">age</div>
-                    </div>
-                	<div class="row">
-                    	<div class="span4"><input type="text" value="<?php echo $age;?>" name="age"/ id="age"></div>
-                    </div>
-                    <div class="row">
-                    	<div class="span4">email</div>
-                    </div>
-                	<div class="row">
-                    	<div class="span4"><input type="text" value="<?php echo $email;?>" name="email" id="email"></div>
-                    </div>
-                    <div class="row">
-                    	<div class="span4">address</div>
-                    </div>
-                	<div class="row">
-                    	<div class="span4"><input type="text" value="<?php echo $address;?>" name="address" id="address"></div>
-                    </div>
-                    <div class="row">
-                    	<div class="span4">phone number</div>
-                    </div>
-                    <div class="row">
-                    	<div class="span4">
-                         <input type="hidden" value="" id="latitude" name="latitude"/>
-				        <input type="hidden" value="" id="longitude" name="longitude"/>
-                        <input type="text" value="<?php echo $phone;?>" name="phone" id="phone"></div>
+                    	<div class="span4"><?php echo $text;?></div>
                     </div>
                     
+                    
                     <div class="row">
-                    	<div class="span4">upload photo</div>
-                    </div>
-                    <div class="row">
-                    	<div class="span4">
+                    	<div class="span4" style="margin-top:50px">
+                        
                         	
+                        	<input class="btn" type="button" onClick="document.location.replace('vote.php')" value="Gallery">
                             
-                            
-                            
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-  <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"><img src="images/AAAAAA.gif" /></div>
-  <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
-  <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image" id="image"/></span>
-  <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-</div>
-
-
-
                         </div>
                     </div>
-                    
-                    <div class="row">
-                    	<div class="span4"><input class="btn btn-primary" type="submit" value="upload" id="submit" name="submit_poll"></div>
-                    </div>
-                    
-                    
-                </div> 
-                
-                   
-         	</div>        
+                	
+                  </Td></Tr></table> 
+                	       
         </div>
      
      
-     <div class="row">
- 
-        <div class="hidden-phone" class="span12" style="text-align:right;">
-        <a href="#prizes" role="button" data-toggle="modal"><img src="images/prizes.png"></a>
-        <a id="b_vote" href="vote.php"><img src="images/vote.png"></a>
-        <a href="tc.php"><img src="images/tc.png"></a></div>
-        
-        <div class="visible-phone" class="span12" style="text-align:left; color:#000000; font-family: 'Conv_HelveticaNeueLTStd-Bd'; bottom:0; position:absolute">
-        <a href="#prizes" role="button" data-toggle="modal" style="color:#000">Prizes</a>&nbsp; | &nbsp;
-        <a id="b_vote" href="vote.php" style="color:#000">Vote</a>&nbsp; | &nbsp;
-        <a href="tc.php" style="color:#000">Terms & conditions</a></div>
-        
-    </div>
+     
     </div>
 </div>
    
         
-</form>
+
 
 
 
@@ -293,77 +224,6 @@ include "php/submit.php";
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
       })();
-
-	
-	
-	
-$(window).ready(function(e) {
-	if (navigator.geolocation)
-	{
-		navigator.geolocation.watchPosition(showPosition);
-	}
-	else{}
-});
-
-
-function showPosition(position)
-{
-	$("#latitude").val(position.coords.latitude);
-	$("#longitude").val(position.coords.longitude);
-}
-  
-	  $("#submit").click(function(){
-	
-	var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-	
-	if( $("#name").val() == '')
-	{
-		$("#error").text("Please enter your name");
-		$("#name").focus();
-		return false;
-	}
-	
-	/*if( $("#age").val() == '')
-	{
-		$("#error").text("Please enter your age");
-		$("#age").focus();
-		return false;
-	}*/
-	
-	if( $("#email").val() == '')
-	{
-		$("#error").text("Please enter your email");
-		$("#email").focus();
-		return false;
-	}
-	
-	 if ($("#email").val().search(emailRegEx) == -1) {
-          $("#error").text("Please enter valid email address");
-		$("#email").focus();
-		return false;
-     }
-  
-	if( $("#address").val() == '')
-	{
-		$("#error").text("Please enter your address");
-		$("#address").focus();
-		return false;
-	}
-	
-	/*if( $("#phone").val() == '')
-	{
-		$("#error").text("Please enter your phone number");
-		$("#phone").focus();
-		return false;
-	}*/
-	
-	if( $("#image").val() == '')
-	{
-		$("#error").text("Please upload your image");
-		$("#phone").focus();
-		return false;
-	}
-});
     </script>
 
   </body>

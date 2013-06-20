@@ -16,10 +16,13 @@ if(isset($_POST['submit_poll']))
 	$address = addslashes($_POST['address']);
 	$phone = addslashes($_POST['phone']);
 	
+	$latitude = $_POST['latitude'];
+	$longitude = $_POST['longitude'];
+	
 	$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 	
-	$target_paths = "gallery/";
-	$target_path_t = "gallery/t/";
+	$target_paths = "../app/gallery/";
+	$target_path_t = "../app/gallery/t/";
 	
 
 
@@ -49,9 +52,9 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 				{
 					include "thumb.php";
 					
-					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','0','0')");
+					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','0','0','$latitude','$longitude')");
 					
-					$image = $config['baseurl'] .'gallery/t/' . $image;
+					$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $image;
 					
 					$facebook->api("/me/feed", "post", array(
 					message => 'I Just voted for this image',

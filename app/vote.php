@@ -92,17 +92,17 @@ $(document).ready(function() {
 				}
 				if($sortmethod == 1)
 				{
-                	$selectQuery = "SELECT * FROM participants ORDER BY name ASC";
+                	$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY name ASC";
 				}
 				else
 				{
 					if ($sortmethod == 2)
 					{
-						$selectQuery = "SELECT * FROM participants ORDER BY votes DESC";
+						$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY votes DESC";
 					}
 					else
 					{
-						$selectQuery = "SELECT * FROM participants ORDER BY id DESC";
+						$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY id DESC";
 					}
 				}
 				
@@ -254,8 +254,8 @@ $(document).ready(function() {
 
 		$('.shareit').click(function(e){
 			
-			var img = '<?php echo $config['baseurl'];?>' +$('#total_image').val();
-
+			var img = $('#total_image').val();
+alert(img);
 			e.preventDefault();
 			FB.ui(
 			{

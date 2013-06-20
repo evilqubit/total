@@ -1,18 +1,38 @@
- <div class="span6">
-                
-                	<div id="form_table">
-                    
-                    	<div class="title">
-                            <div class="invite"><a href="#"><img src="images/invite.png"></a></div>
-                            <div class="share"><a onclick="document.getElementById('total_image').value='gallery/t/1.jpg'" href="#"><img src="images/share.png"></a></div>
-                            <div class="vote"><a href="#"><img src="images/vote_b.png"></a></div>
-                        </div>  
-                          
-                        <div class="thumb">
-                         <a class="fancybox" rel="group" href="gallery/1.jpg"><img src="gallery/t/1.jpg" style="margin:9px; width:190px; height:124px" ></a>
-                         
-                        </div>
-                       
-                    </div>
-                    
-                </div>
+<?php
+session_start();
+include "../includes/connect.php";
+
+$_SESSION['limit'] += 5;
+
+		if (!isset($_GET["sort"]) || empty($_GET["sort"]))
+		{
+			$sortmethod = 0;
+		} 
+		else {
+			$sortmethod = $_GET["sort"];
+		}
+		if($sortmethod == 1)
+		{
+			$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY name ASC LIMIT {$_SESSION['limit']}, 5";
+		}
+		else
+		{
+			if ($sortmethod == 2)
+			{
+				$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY votes DESC LIMIT {$_SESSION['limit']}, 5";
+			}
+			else
+			{
+				$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY id DESC LIMIT {$_SESSION['limit']}, 5";
+			}
+		}
+		
+		
+		
+		$query_result = mysql_query($selectQuery);
+		while ($row = mysql_fetch_array($query_result))
+		{
+			include "gallery_table.php";
+		}
+			
+?>

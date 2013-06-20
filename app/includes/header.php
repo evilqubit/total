@@ -1,6 +1,14 @@
 <?php 
+session_start();
+
+include "demo.php";
+if ( ($deviceType == 'tablet') || ($deviceType == 'phone') )
+{
+	echo '<script>top.location.href = "http://lebappsonline.com/dev01/total/mobile/";</script>';
+}
+
 include "include.php";
-session_start(); ?>
+?>
 <?php
 
 
