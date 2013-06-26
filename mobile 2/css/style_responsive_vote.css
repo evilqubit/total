@@ -1,0 +1,30 @@
+@media screen and (min-width: 768px){
+	#header {
+		 left:133px !important;
+	}
+	 #wrapper {
+		 left:133px !important;
+	}
+	 #footer {
+		 left:133px !important;
+	}
+	#background{
+		left:133px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	 #wrapper {
+		 left:0px !important;
+	}
+	 #header {
+		 left:0px !important;
+	}
+	 #footer {
+		 left:0px !important;
+	}
+	#background{
+		display:none;
+		border:solid;
+	}
+}
