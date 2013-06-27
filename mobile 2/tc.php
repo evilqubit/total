@@ -6,6 +6,11 @@
 <?php include "js/iscroll_function.php";?>
 
 <style>
+body{
+	background:#8ed6ed;
+	padding-top:0;
+}
+
 .control-label{
 	font-family: 'Conv_HelveticaNeueLTStd-Md';
 	font-size:16px;

@@ -6,14 +6,9 @@
 
 <?php include "js/iscroll_function.php";?>
 <style>
-#error{
-	text-align:center;
-	color:#C30;
-	font-size:14px;
-	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-}
-#div_error{
-	height:30px;
+body{
+	background:#8ed6ed;
+	padding-top:0;
 }
 
 .control-label{
@@ -26,6 +21,9 @@
 .fileupload-new{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 }
+
+
+
 
 </style>
 <?php
@@ -139,7 +137,7 @@ include "php/submit.php";
       <div class="span9" style="width:auto">
 
 
-          <form class="form-horizontal" action="index.php">
+          <form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
           
           <div class="control-group">
 	          <div class="span4">&nbsp;</div>
@@ -182,6 +180,9 @@ include "php/submit.php";
               <div class="controls">
                 <div class="input-prepend">
                   <input class="span2" name="phone" id="phone" type="text" placeholder="PHONE" value="<?php echo $phone;?>">
+
+                  <input class="span2" name="latitude" id="latitude" type="hidden" value="<?php echo $latitude;?>">
+                  <input class="span2" name="longitude" id="longitude" type="hidden" value="<?php echo $longitude;?>">
                 </div>
               </div>
             </div>
@@ -286,218 +287,44 @@ $("#submit").click(function(){
 	
 	if( $("#name").val() == '')
 	{
-		$("#error").text("Please enter your name");
-		$("#name").focus();
+		alert("Please enter your name");
 		return false;
 	}
 	
 	if( $("#email").val() == '')
 	{
-		$("#error").text("Please enter your email");
-		$("#email").focus();
+		alert("Please enter your email");
 		return false;
 	}
 	
-	 if ($("#email").val().search(emailRegEx) == -1) {
-          $("#error").text("Please enter valid email address");
-		$("#email").focus();
+	 if ($("#email").val().search(emailRegEx) == -1)
+	 {
+		alert("Please enter valid email address");
 		return false;
      }
   
 	if( $("#address").val() == '')
 	{
-		$("#error").text("Please enter your address");
-		$("#address").focus();
+		alert("Please enter your address");
 		return false;
 	}
 	
-	if (isNaN( $("#phone").val() )) {
-    	$("#error").val("Phone number can be only numbers");
-		$("#phone").focus();
+	if (isNaN( $("#phone").val() ))
+	{
+		alert("Phone number can be only numbers");
 		return false;
 	}
 	
 	if( $("#image").val() == '')
 	{
-		$("#error").text("Please upload your image");
-		$("#image").focus();
+		alert("Please upload your image");
 		return false;
 	}
 });
 
 </script>    
 
-<script>
-
-$(document).ready(function(){
-                
-                
-                // Close/Open Navigation
-               var myheight = $(document).height();
-                
-				$(".mobile-nav").on("click",function(e){
-                    e.preventDefault();
-					
-					 var width = ($(window).width())*0.80;
-           			
-				
-                    $(this).toggleClass('open-nav');
-                    
-                    if($(this).hasClass('open-nav')){
-                        
-                        $("#animated").animate({
-                            left: width
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: width
-                        }, { duration: 240, queue: false });
-						
-						
-                    }
-                    else {
-                        $("#animated").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-                    }
-					$("#leftmenu").css({"height":myheight,
-										"width":width});
- 
-                });
-            });
-			
-			
-$(document).ready(function(e) {
-	
-	var myheight = $(document).height();
-	var mywidth = $(document).width();
-	$('#animated').css({"width":mywidth});
-    var newheight = myheight - 51;
-	$('#wrapper').css({"height":newheight});
-	
-	$("#leftmenu").css({"height":0});
-	$('#wrappers').css({"height":newheight});
-	myScrolls.refresh();
-	
-	
-});
-
-$(window).resize(function() {
-	
-	 // Close/Open Navigation
-                var width = ($(window).width())*0.80;
-           		
-              
-                        $("#animated").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-                  
-    
-			
-			
-			
-	var myheight = $(window).height();	
-	var mywidth = $(window).width();
-
-	$('#animated').css({"width":mywidth});
-	
-    var newheight = myheight;
-	$('#wrapper').css({"height":newheight});
-	
-	$("#leftmenu").css({"height":newheight,
-	"width":width});
-	$('#wrappers').css({"height":newheight});
-	myScrolls.refresh();
-	
-	
-});
-
-</script>
-
-
-<script src="js/quo.js"></script>
-<script src="js/quo.debug.js"></script>
-    
-<script>
-$$('#animated').swipeLeft(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-});
-
-
-$$('#animated').swipeRight(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: width
-	}, { duration: 240, queue: false });
-});
-
-$$('#wrapper').swipeLeft(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#leftmenu").css({"height":0,
-						"width":width});
-	
-	myScrolls.refresh();
-});
-
-
-$$('#wrapper').swipeRight(function() {
-    // affects "span" children/grandchildren
-	
-	var myheight = $(document).height();
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	
-	$("#leftmenu").css({"height":myheight,
-						"width":width});
-	
-	myScrolls.refresh();
-});
-
-
-</script>  
+<?php include "js/menu_animation.php";?>
 
   </body>
 </html>

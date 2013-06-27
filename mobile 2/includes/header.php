@@ -1,6 +1,6 @@
-<?php 
+<?php session_start();
 /*
-session_start();
+
 
 include "demo.php";
 if ($deviceType == 'computer')

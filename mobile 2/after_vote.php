@@ -6,16 +6,10 @@
 <?php include "js/iscroll_function.php";?>
 
 <style>
-#error{
-	text-align:center;
-	color:#C30;
-	font-size:14px;
-	font-family: 'Conv_HelveticaNeueLTStd-Bd';
+body{
+	background:#8ed6ed;
+	padding-top:0;
 }
-#div_error{
-	height:30px;
-}
-
 .control-label{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 	font-size:22px;
@@ -24,10 +18,6 @@
 	color:#FFF;
 	text-align:center;
 }
-.fileupload-new{
-	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-}
-
 </style>
 
 <!--<link href="css/style_responsive.css" rel="stylesheet">-->

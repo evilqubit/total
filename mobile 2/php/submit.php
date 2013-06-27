@@ -6,7 +6,9 @@ $age = '';
 $email = $uemail;
 $address = $_SESSION['country'];
 $phone = '';
-	
+
+$latitude = '';
+$longitude = '';	
 	
 if(isset($_POST['submit_poll']))
 {
@@ -21,10 +23,9 @@ if(isset($_POST['submit_poll']))
 	
 	$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 	
-	$target_paths = "../app/gallery/";
-	$target_path_t = "../app/gallery/t/";
+	$target_paths = "gallery/";
+	$target_path_t = "gallery/t/";
 	
-
 
 if(($_FILES['image']['type'] == 'image/jpeg')
 || ($_FILES['image']['type'] == 'image/pjpeg')
@@ -54,14 +55,14 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 					
 					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','0','0','$latitude','$longitude')");
 					
-					$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $image;
+					/*$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $image;
 					
 					$facebook->api("/me/feed", "post", array(
 					message => 'I Just voted for this image',
 					picture=>  $image,
 					link => $config['appbaseurl'],
 					name => "Total"
-					));
+					));*/
 			
 					echo "<script>document.location.replace('thankyou.php');</script>";
 					
@@ -69,23 +70,24 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 				} 
 				else
 				{
-					$error = 'error while uploading, please try again!';
+					echo "<script>alert('error while uploading, please try again!');</script>";
 				}
 		}
 		else
 		{
-			$error = 'Please upload your image';
+			echo "<script>alert('Please upload your image');</script>";
 		}
 	}
 	else
 	{
-		$error = 'image should not exceed 10 MB';
+		echo "<script>alert('image should not exceed 10 MB');</script>";
 	}
 	}
 	
 	else
 	{
-		$error = 'Image type can be only jpg, png or gif';
+		echo "<script>alert('Image type can be only jpg, png or gif');</script>";
 	}
+	exit;
 }
 ?>

@@ -35,6 +35,13 @@ function loaded() {
 	
 	myScroll = new iScroll('wrapper', {
 		useTransition: true,
+		onBeforeScrollStart: function (e) {
+			var target = e.target;
+			while (target.nodeType != 1) target = target.parentNode;
+
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA')
+				e.preventDefault();
+		},
 		topOffset: pullDownOffset,
 		onRefresh: function () {
 			if (pullDownEl.className.match('loading')) {

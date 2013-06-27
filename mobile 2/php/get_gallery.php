@@ -34,5 +34,6 @@ $_SESSION['limit'] += 5;
 		{
 			include "gallery_table.php";
 		}
+		
 			
 ?>

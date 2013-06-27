@@ -15,7 +15,7 @@
                         
                           
                         <div class="thumb">
-                         <a class="fancybox" rel="group" href="../app/gallery/<?php echo $row['image'];?>"><img src="gallery/t/1.jpg" style="margin:9px; width:190px; height:124px"></a>
+                         <a class="fancybox" rel="group" href="../app/gallery/<?php echo $row['image'];?>"><img src="gallery/t/<?php echo $row['image'];?>" style="margin:9px; width:190px; height:124px"></a>
                           
                         </div>
                         
