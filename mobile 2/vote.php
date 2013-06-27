@@ -8,31 +8,6 @@
 
 
 <style>
-@font-face {
-	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-	src: url('fonts/HelveticaNeueLTStd-Bd.eot');
-	src: local('☺'), url('fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), url('fonts/HelveticaNeueLTStd-Bd.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-Bd.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Conv_HelveticaNeueLTStd-Md';
-	src: url('fonts/HelveticaNeueLTStd-Md.eot');
-	src: local('☺'), url('fonts/HelveticaNeueLTStd-Md.woff') format('woff'), url('fonts/HelveticaNeueLTStd-Md.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-Md.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-body{
-	/*background:#8ed6ed;
-	background:#fe0032;
-	background:#0033ff;
-	background:#ff8500;
-	background:#4db3fe;*/
-	background:#8ed6ed;
-	padding-top:0;
-}
-
 .control-label{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 	font-size:22px;
@@ -56,17 +31,13 @@ body{
 	color:#FFF;
 	float:left;
 	margin:5px;
-}
-.span4{
 	text-align:center;
 	margin-top:60px;
 	
 }
 #form_table{
 	background-image:url(images/frame.png);
-	/*background-repeat:no-repeat;*/
 	width:206px;
-	/*height:157px;*/
 	margin:auto;
 	border-style:solid; border-width:2px;border-color:#4773a2;
 	
@@ -90,126 +61,8 @@ body{
 	position:absolute;
 	right:110px;
 }
-.thumb{
-	/*position:absolute;*/
-	/*height:160px;*/
-}
 
 
-
-
-
-#wrapper {
-	background:#8ed6ed;
-	position:absolute;
-	top:51px; bottom:48px; left:-9999px;
-	width:100%;
-	overflow:auto;
-}
-
-#scroller {
-	position:absolute; z-index:1;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	width:100%;
-	padding:0;
-}
-
-
-#myFrame {
-	position:absolute;
-	top:0; left:0;
-}
-
-
-
-/**
- *
- * Pull down styles
- *
- */
-#pullDown, #pullUp {
-	/*background:#fff;*/
-	height:40px;
-	line-height:40px;
-	padding:5px 10px;
-	/*border-bottom:1px solid #ccc;*/
-	font-weight:bold;
-	font-size:14px;
-	color:#888;
-}
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-	display:block; float:left;
-	width:40px; height:40px;
-	background:url(pull-icon@2x.png) 0 0 no-repeat;
-	-webkit-background-size:40px 80px; background-size:40px 80px;
-	-webkit-transition-property:-webkit-transform;
-	-webkit-transition-duration:250ms;	
-}
-#pullDown .pullDownIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
-}
-#pullUp .pullUpIcon  {
-	-webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullDown.flip .pullDownIcon {
-	-webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullUp.flip .pullUpIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
-}
-
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-	background-position:0 100%;
-	-webkit-transform:rotate(0deg) translateZ(0);
-	-webkit-transition-duration:0ms;
-
-	-webkit-animation-name:loading;
-	-webkit-animation-duration:2s;
-	-webkit-animation-iteration-count:infinite;
-	-webkit-animation-timing-function:linear;
-}
-
-@-webkit-keyframes loading {
-	from { -webkit-transform:rotate(0deg) translateZ(0); }
-	to { -webkit-transform:rotate(360deg) translateZ(0); }
-}
-
-.top_menu0{
-	margin-left:10px;
-	color:#FFFFFF !important;
-}
-.top_menu{
-	color:#FFFFFF !important;
-}
-.app-nav{
-    background:#333333;
-	position:absolute;
-    height: 100%;
-    display: block;
-    position: fixed;
-    width: 84%;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
-}
-
-
-#wrappers {
-	position:absolute; z-index:1;
-	top:45px; bottom:48px; left:0;
-	width:100%;
-	background-color:transparent;
-	overflow:auto;
-}
-
-#scrollers {
-	position:absolute; z-index:1;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	width:100%;
-	padding:0;
-}
 </style>
  
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -233,7 +86,7 @@ body{
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
+        <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
@@ -250,7 +103,7 @@ body{
         <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/sort-by-votes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTES</span></a>
       </li>
 
-	<li></li>
+	<li>&nbsp;</li><li>&nbsp;</li>
       <li style="line-height:30px">
        <a href="#" id="sig" style="text-align:right; color:#999">Total &copy; 2013&nbsp;&nbsp;</a>
       </li>
@@ -271,9 +124,9 @@ body{
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/pages/Publiscreen-Apps/581669711863250">Total</a>
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">Total</a>
           
-          <a class="brand visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/pages/Publiscreen-Apps/581669711863250">
+          <a class="brand visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">
           <img style="width:40px" src="images/logo_m.png">&nbsp;&nbsp;<img style="width:40px" src="images/logon_m.png"></a>
           
           <div class="nav-collapse collapse visible-desktop">
@@ -283,7 +136,7 @@ body{
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="vote.php">VOTE</a>
+                <a class="top_menu" href="index.php">GO TO HOMEPAGE</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
@@ -441,174 +294,7 @@ body{
       })();
     </script>    
 
-
-<script>
-
-$(document).ready(function(){
-                
-                
-                // Close/Open Navigation
-               var myheight = $(document).height();
-                
-				$(".mobile-nav").on("click",function(e){
-                    e.preventDefault();
-					
-					 var width = ($(window).width())*0.80;
-           			
-				
-                    $(this).toggleClass('open-nav');
-                    
-                    if($(this).hasClass('open-nav')){
-                        
-                        $("#animated").animate({
-                            left: width
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: width
-                        }, { duration: 240, queue: false });
-						
-						
-                    }
-                    else {
-                        $("#animated").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-                    }
-					$("#leftmenu").css({"height":myheight});
- 
-                });
-            });
-			
-			
-$(document).ready(function(e) {
-	
-	var myheight = $(document).height();
-	var mywidth = $(document).width();
-	$('#animated').css({"width":mywidth});
-    var newheight = myheight - 51;
-	$('#wrapper').css({"height":newheight});
-	
-	$("#leftmenu").css({"height":0});
-	$('#wrappers').css({"height":newheight});
-	myScrolls.refresh();
-	
-	
-});
-
-$(window).resize(function() {
-	
-	 // Close/Open Navigation
-                var width = ($(window).width())*0.80;
-           		
-              
-                        $("#animated").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-						$("#wrapper").animate({
-                            left: 0
-                        }, { duration: 240, queue: false });
-                  
-    
-			
-			
-			
-	var myheight = $(window).height();	
-	var mywidth = $(window).width();
-
-	$('#animated').css({"width":mywidth});
-	
-    var newheight = myheight;
-	$('#wrapper').css({"height":newheight});
-	
-	$("#leftmenu").css({"height":newheight});
-	$('#wrappers').css({"height":newheight});
-	myScrolls.refresh();
-	
-	
-});
-
-</script>
-
-
-<script src="js/quo.js"></script>
-<script src="js/quo.debug.js"></script>
-    
-<script>
-$$('#animated').swipeLeft(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-});
-
-
-$$('#animated').swipeRight(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: width
-	}, { duration: 240, queue: false });
-});
-
-$$('#wrapper').swipeLeft(function() {
-    // affects "span" children/grandchildren
-	
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: 0
-	}, { duration: 240, queue: false });
-	$("#leftmenu").css({"height":0});
-	
-	myScrolls.refresh();
-});
-
-
-$$('#wrapper').swipeRight(function() {
-    // affects "span" children/grandchildren
-	
-	var myheight = $(document).height();
-	var width = ($(window).width())*0.80;
-	
-	$(this).toggleClass('open-nav');
-	
-    $("#animated").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	$("#wrapper").animate({
-		left: width
-	}, { duration: 240, queue: false });
-	
-	$("#leftmenu").css({"height":myheight});
-	
-	myScrolls.refresh();
-});
-
-
-</script>    
+<?php include "js/menu_animation.php";?>
     
   </body>
 </html>

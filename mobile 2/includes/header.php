@@ -26,6 +26,10 @@ $_SESSION['country'] = $ip2c->get_country_name();
 
 
 */include "connect.php";
+
+$uname = '';
+$uemail = '';
+$_SESSION['country'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +39,8 @@ $_SESSION['country'] = $ip2c->get_country_name();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+	
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">

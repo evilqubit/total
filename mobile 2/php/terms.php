@@ -1,5 +1,5 @@
 
-<table align="center" id="tc_table"><Tr><Td>
+<table style="margin:15px" align="center" id="tc_table"><Tr><Td>
             
 <p>By entering the TOTAL QUARTZ Robot photo competition on Total Liban Facebook page, you are agreeing to Total Liban storing your information. We will not share your information with third parties.</p>
 

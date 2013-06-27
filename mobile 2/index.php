@@ -1,25 +1,11 @@
 <?php include "includes/header.php";?>
 
-<style>
-@font-face {
-	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-	src: url('fonts/HelveticaNeueLTStd-Bd.eot');
-	src: local('☺'), url('fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), url('fonts/HelveticaNeueLTStd-Bd.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-Bd.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Conv_HelveticaNeueLTStd-Md';
-	src: url('fonts/HelveticaNeueLTStd-Md.eot');
-	src: local('☺'), url('fonts/HelveticaNeueLTStd-Md.woff') format('woff'), url('fonts/HelveticaNeueLTStd-Md.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-Md.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
+<script src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="src/iscroll.js"></script>
 
-body{
-	background:#8ed6ed;
-	padding-top:0;
-}
+
+<?php include "js/iscroll_function.php";?>
+<style>
 #error{
 	text-align:center;
 	color:#C30;
@@ -40,13 +26,7 @@ body{
 .fileupload-new{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 }
-.lightbox{
-	background-image:url(images/litebox_bg.png);
-	width:100%;
-	height:100%;
-	position:absolute;
-	z-index:99;
-}
+
 </style>
 <?php
 
@@ -58,39 +38,90 @@ include "php/submit.php";
 
     <!-- Navbar
     ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<div  class="app-nav hidden-desktop" id="leftmenu" style="height:0px; overflow:hidden">
+
+<div id="wrappers">
+	<div id="scrollers">
+		
+        
+    <ul class="nav">
+      <li>
+       <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
+      </li>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+      </li>
+      
+   
+
+	<li>&nbsp;</li><li>&nbsp;</li>
+      <li style="line-height:30px">
+       <a href="#" id="sig" style="text-align:right; color:#999">Total &copy; 2013&nbsp;&nbsp;</a>
+      </li>
+    </ul>
+    
+  </div>
+</div>
+
+
+</div>
+        
+          
+    <div id="animated" style="position:relative" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <button type="button" class="mobile-nav btn btn-navbar" style="padding: 7px 8px 3px 8px;float: left; clear:both;" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" target="_blank" href="https://www.facebook.com/pages/Publiscreen-Apps/581669711863250">Total</a>
-          <div class="nav-collapse collapse">
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">Total</a>
+          
+          <a class="brand visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">
+          <img style="width:40px" src="images/logo_m.png">&nbsp;&nbsp;<img style="width:40px" src="images/logon_m.png"></a>
+          
+          <div class="nav-collapse collapse visible-desktop">
             <ul class="nav">
-              <li class="">
-               <a href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              <li>
+               <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
-              <li class="">
-                <a href="vote.php">VOTE</a>
+              <li>
+                <a class="top_menu" href="vote.php">VOTE</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
-              <li class="">
-                <a href="tc.php">TERMS AND CONDITIONS</a>
+              <li>
+                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
             </ul>
           </div>
+          
+          
+            
+            
         </div>
       </div>
     </div>
 
 <!-- Subhead
 ================================================== -->
-<header id="overview">
+
+
+<div id="wrapper">
+	<div id="scroller">
+		<div id="pullDown">
+			
+		</div>
+        
+        
+<header id="overview" class="visible-tablet visible-desktop">
   <div class="container" style="text-align:center">
     <h1><img src="images/logo.png"></h1>
    
@@ -109,6 +140,10 @@ include "php/submit.php";
 
 
           <form class="form-horizontal" action="index.php">
+          
+          <div class="control-group">
+	          <div class="span4">&nbsp;</div>
+          </div>
           
           <div class="control-group">
 	          <div id="div_error" class="span4" style="text-align:center"><span id="error"></span></div>
@@ -183,11 +218,16 @@ include "php/submit.php";
   </div>
 
 
+<div id="pullUp">
+			
+		</div>
+	</div>
+</div>
+
 
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img src="images/prize.png">
+ <img data-dismiss="modal" aria-hidden="true" src="images/prize.png">
 </div>
-    
 
     <!-- Le javascript
     ================================================== -->
@@ -286,6 +326,178 @@ $("#submit").click(function(){
 });
 
 </script>    
+
+<script>
+
+$(document).ready(function(){
+                
+                
+                // Close/Open Navigation
+               var myheight = $(document).height();
+                
+				$(".mobile-nav").on("click",function(e){
+                    e.preventDefault();
+					
+					 var width = ($(window).width())*0.80;
+           			
+				
+                    $(this).toggleClass('open-nav');
+                    
+                    if($(this).hasClass('open-nav')){
+                        
+                        $("#animated").animate({
+                            left: width
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: width
+                        }, { duration: 240, queue: false });
+						
+						
+                    }
+                    else {
+                        $("#animated").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+                    }
+					$("#leftmenu").css({"height":myheight,
+										"width":width});
+ 
+                });
+            });
+			
+			
+$(document).ready(function(e) {
+	
+	var myheight = $(document).height();
+	var mywidth = $(document).width();
+	$('#animated').css({"width":mywidth});
+    var newheight = myheight - 51;
+	$('#wrapper').css({"height":newheight});
+	
+	$("#leftmenu").css({"height":0});
+	$('#wrappers').css({"height":newheight});
+	myScrolls.refresh();
+	
+	
+});
+
+$(window).resize(function() {
+	
+	 // Close/Open Navigation
+                var width = ($(window).width())*0.80;
+           		
+              
+                        $("#animated").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+                  
+    
+			
+			
+			
+	var myheight = $(window).height();	
+	var mywidth = $(window).width();
+
+	$('#animated').css({"width":mywidth});
+	
+    var newheight = myheight;
+	$('#wrapper').css({"height":newheight});
+	
+	$("#leftmenu").css({"height":newheight,
+	"width":width});
+	$('#wrappers').css({"height":newheight});
+	myScrolls.refresh();
+	
+	
+});
+
+</script>
+
+
+<script src="js/quo.js"></script>
+<script src="js/quo.debug.js"></script>
+    
+<script>
+$$('#animated').swipeLeft(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+});
+
+
+$$('#animated').swipeRight(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: width
+	}, { duration: 240, queue: false });
+});
+
+$$('#wrapper').swipeLeft(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#leftmenu").css({"height":0,
+						"width":width});
+	
+	myScrolls.refresh();
+});
+
+
+$$('#wrapper').swipeRight(function() {
+    // affects "span" children/grandchildren
+	
+	var myheight = $(document).height();
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	
+	$("#leftmenu").css({"height":myheight,
+						"width":width});
+	
+	myScrolls.refresh();
+});
+
+
+</script>  
 
   </body>
 </html>
