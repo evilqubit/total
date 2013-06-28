@@ -4,9 +4,15 @@
 <script type="text/javascript" src="src/iscroll.js"></script>
 
 
+
+<link rel="stylesheet" href="fancybox/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox.pack.js?v=2.0.6"></script>
+<link rel="stylesheet" href="fancybox/helpers/jquery.fancybox-thumbs.css?v=2.0.6" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/helpers/jquery.fancybox-thumbs.js?v=2.0.6"></script>
+
+
 <script type="text/javascript">
-
-
 function get_images(){
 
 	var sortmethod = $("#sortmethod").val();
@@ -124,6 +130,14 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 document.addEventListener('DOMContentLoaded', loadeds, false);
 </script>
 
+<script>
+$(document).ready(function() {
+		$(".fancybox").fancybox({
+			
+		});
+	});
+</script>
+
 <?php include "php/voting.php";?>
 
 <style>
@@ -213,12 +227,18 @@ body{
         <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li style="background-color:#666666;">
+         <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
+      </li>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
         <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
-      <li><hr style="border-color:#242424; height: 1px; background-color: #242424;" width=100%></li>
-      <li><a href="#" style="color:#CCC; font-weight:bold">SORT BY:</a>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li style="background-color:#202020;"><a href="#" style="color:#CCC; font-weight:bold;">SORT BY</a></li>
+       <li>&nbsp;</li>
+      <li>
         <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/sort-by-name.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">NAMES</span></a>
       </li>
       
@@ -259,6 +279,8 @@ body{
               <li><a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a></li>
               
               <li><a class="top_menu" href="index.php">GO TO HOMEPAGE</a></li>
+              
+              <li><a class="top_menu" href="vote.php">VOTE</a></li>
               
               <li><a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a></li>
               
@@ -356,7 +378,7 @@ body{
           </div>
      </div>
 </div>
-
+<input type="hidden" value="" id="total_image"/>
 
 <div id="pullUp">
 			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
@@ -416,13 +438,65 @@ body{
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
       })();
-    </script>    
+    </script>  
+    
+<script src="https://connect.facebook.net/en_US/all.js"></script>  
 <script>
 function vote(img){
 	window.location = 'vote.php?gallery_image='+ img;
 }
+
+
+FB.init({
+        appId  : '281325538680004',
+        frictionlessRequests: true,
+    });
+
+      function sendRequestToRecipients() {
+        var user_ids = document.getElementsByName("user_ids")[0].value;
+        FB.ui({method: 'apprequests',
+          message: 'message',
+          to: user_ids, 
+        }, requestCallback);
+      }
+
+      function sendRequestViaMultiFriendSelector() {
+        FB.ui({method: 'apprequests',
+          message: 'message'
+        }, requestCallback);
+      }
+      
+      function requestCallback(response) {
+        // Handle callback here
+      }
+
+$(document).ready(function() {
+
+		$('.shareit').click(function(e){
+			var myimage = $('#total_image').val();
+		
+			var n=myimage.replace("../","");
+
+			var img = 'http://lebappsonline.com/dev01/total/' + n;
+			
+			e.preventDefault();
+			FB.ui(
+			{
+			method: 'feed',
+			name: 'Total',
+			link: '<?php echo $config['appbaseurl'];?>',
+			picture: img,
+			caption: 'TOTAL QUARTZ Robot Photo Competition',
+			description: '',
+			message: ''
+			});
+		});
+
+	});
 </script>
 <?php include "js/menu_animation.php";?>
-    
+<?php
+	include "includes/close.php";
+?>
   </body>
 </html>

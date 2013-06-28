@@ -42,8 +42,12 @@ body{
       <li>
         <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
       </li>
-      <li><hr style="border-color:#2D2D2D" width=100%></li>
+       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
+        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
+      </li>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li style="background-color:#666666;">
         <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
@@ -84,6 +88,10 @@ body{
               <li><hr style="border-color:#000" width=100%></li>
               <li>
                 <a class="top_menu" href="index.php">GO TO HOMEPAGE</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="vote.php">VOTE</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>

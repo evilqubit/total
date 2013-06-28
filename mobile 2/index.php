@@ -13,9 +13,9 @@ body{
 
 .control-label{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-	font-size:22px;
+	font-size:18px;
 	text-transform:uppercase;
-	text-shadow:5px 5px 10px #000000;
+	/*text-shadow:5px 5px 10px #000000;*/
 	color:#FFF;
 }
 .fileupload-new{
@@ -26,10 +26,39 @@ body{
 
 
 </style>
+
 <?php
 
-include "php/submit.php";
+$error = '';
+$name = $uname;
+$age = '';
+$email = $uemail;
+$address = $_SESSION['country'];
+$phone = '';
 
+
+$dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
+
+if($numrows == 0)
+{
+	$date = date("Y-m-d");
+	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
+}
+
+$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
+
+if($numrows > 0)
+{
+	echo "<script>document.location.replace('vote.php');</script>";
+}
+else
+{
+	include "php/submit.php";
+}
 ?>
     
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -45,6 +74,10 @@ include "php/submit.php";
     <ul class="nav">
       <li>
        <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li style="background-color:#666666;">
+        <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
@@ -87,6 +120,10 @@ include "php/submit.php";
             <ul class="nav">
               <li>
                <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="index.php">GO TO HOMEPAGE</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
@@ -149,42 +186,46 @@ include "php/submit.php";
           
             <div class="control-group">
             
-              <label class="control-label" for="name">Full Name</label>
+              <label class="control-label" for="name" style="line-height: 8px;">Full Name</label>
               <div class="controls">
                 <div class="input-prepend">
                   <input class="span2" name="name" id="name" type="text" placeholder="FULL NAME" value="<?php echo $name;?>">
                 </div>
               </div>
+               <label style="line-height: 8px;">&nbsp;</label>
             </div>
                     
              <div class="control-group">
-              <label class="control-label" for="email">EMAIL</label>
+              <label class="control-label" for="email" style="line-height: 8px;">EMAIL</label>
               <div class="controls">
                 <div class="input-prepend">
                  <input class="span2" name="email" id="email" type="text" placeholder="EMAIL" value="<?php echo $email;?>">
                 </div>
               </div>
+              <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
              <div class="control-group">
-              <label class="control-label" for="address">ADDRESS</label>
+              <label class="control-label" for="address" style="line-height: 8px;">ADDRESS</label>
               <div class="controls">
                 <div class="input-prepend">
                   <input class="span2" name="address" id="address" type="text" placeholder="ADDRESS" value="<?php echo $address;?>">
                 </div>
               </div>
+              <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
              <div class="control-group">
-              <label class="control-label" for="phone">PHONE NUMBER</label>
+              <label class="control-label" for="phone" style="line-height: 8px;">PHONE NUMBER</label>
               <div class="controls">
                 <div class="input-prepend">
                   <input class="span2" name="phone" id="phone" type="text" placeholder="PHONE" value="<?php echo $phone;?>">
 
-                  <input class="span2" name="latitude" id="latitude" type="hidden" value="<?php echo $latitude;?>">
-                  <input class="span2" name="longitude" id="longitude" type="hidden" value="<?php echo $longitude;?>">
+                  <input class="span2" name="latitude" id="latitude" type="hidden" value="">
+                  <input class="span2" name="longitude" id="longitude" type="hidden" value="">
                 </div>
               </div>
+              <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
              
@@ -199,7 +240,7 @@ include "php/submit.php";
 </div>
 
 
-
+<label style="line-height: 8px;">&nbsp;</label>
             </div>
             
              <div class="control-group">
@@ -281,6 +322,21 @@ include "php/submit.php";
     
 <script>
 
+$(window).ready(function(e) {
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.watchPosition(showPosition);
+	}
+	else{}
+});
+
+
+function showPosition(position)
+{
+	$("#latitude").val(position.coords.latitude);
+	$("#longitude").val(position.coords.longitude);
+}
+
 $("#submit").click(function(){
 
 	var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -326,5 +382,9 @@ $("#submit").click(function(){
 
 <?php include "js/menu_animation.php";?>
 
+<?php
+	include "includes/close.php";
+?>
+   
   </body>
 </html>

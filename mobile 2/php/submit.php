@@ -1,14 +1,4 @@
 <?php
-
-$error = '';
-$name = $uname;
-$age = '';
-$email = $uemail;
-$address = $_SESSION['country'];
-$phone = '';
-
-$latitude = '';
-$longitude = '';	
 	
 if(isset($_POST['submit_poll']))
 {
@@ -23,8 +13,8 @@ if(isset($_POST['submit_poll']))
 	
 	$date = date("Y-m-d H:m:s", strtotime("+9 hours"));
 	
-	$target_paths = "gallery/";
-	$target_path_t = "gallery/t/";
+	$target_paths = "../app/gallery/";
+	$target_path_t = "../app/gallery/t/";
 	
 
 if(($_FILES['image']['type'] == 'image/jpeg')
@@ -53,16 +43,16 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 				{
 					include "thumb.php";
 					
-					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','0','0','$latitude','$longitude')");
+					$write = mysql_query("INSERT INTO participants VALUES ('','$uid','$name','$age','$email','$address','{$_SESSION['country']}','$phone','$image','$date','1','0','$latitude','$longitude')");
 					
-					/*$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $image;
+					$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $image;
 					
 					$facebook->api("/me/feed", "post", array(
-					message => 'I Just voted for this image',
+					message => 'I submitted this image, please vote',
 					picture=>  $image,
 					link => $config['appbaseurl'],
 					name => "Total"
-					));*/
+					));
 			
 					echo "<script>document.location.replace('thankyou.php');</script>";
 					
@@ -88,6 +78,5 @@ if(($_FILES['image']['type'] == 'image/jpeg')
 	{
 		echo "<script>alert('Image type can be only jpg, png or gif');</script>";
 	}
-	exit;
 }
 ?>

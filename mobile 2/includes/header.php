@@ -1,11 +1,9 @@
 <?php session_start();
-/*
-
 
 include "demo.php";
 if ($deviceType == 'computer')
 {
-	echo '<script>top.location.href = "https://www.facebook.com/pages/Publiscreen-Apps/581669711863250?id=581669711863250&sk=app_281325538680004";</script>';
+	echo '<script>top.location.href = "https://www.facebook.com/TotalLibanLebanon?sk=app_281325538680004";</script>';
 }
  
 include "include.php";
@@ -24,12 +22,7 @@ $ip2c->table_name='ip2c';
 $_SESSION['country'] = $ip2c->get_country_name();
 //$ip2c->get_country_code();
 
-
-*/include "connect.php";
-
-$uname = '';
-$uemail = '';
-$_SESSION['country'] = '';
+include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
